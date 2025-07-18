@@ -1,9 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import authRoutes from './routes/auth.js';
+import cvRoutes from './routes/cv.js';
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
@@ -19,8 +20,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/cvbuilder
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/cv', require('./routes/cv'));
+app.use('/api/auth', authRoutes);
+app.use('/api/cv', cvRoutes);
 
 // Basic route
 app.get('/', (req, res) => {

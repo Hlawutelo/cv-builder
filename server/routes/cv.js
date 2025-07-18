@@ -1,6 +1,6 @@
-const express = require('express');
-const CV = require('../models/CV');
-const auth = require('../middleware/auth');
+import express from 'express';
+import CV from '../models/CV.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -76,4 +76,4 @@ router.delete('/:id', auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

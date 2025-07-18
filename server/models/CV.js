@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const experienceSchema = new mongoose.Schema({
   company: String,
@@ -44,4 +44,5 @@ const cvSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('CV', cvSchema);
+const CV = mongoose.model('CV', cvSchema);
+export default CV;
